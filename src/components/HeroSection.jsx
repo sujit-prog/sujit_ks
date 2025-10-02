@@ -105,6 +105,13 @@ const HeroSection = () => {
               Contact →
             </motion.a>
             <motion.a
+              href="https://drive.google.com/file/d/12CBQeKGNe2DqMBJAbf45IC6B5zNSCFT3/view?usp=sharing"
+              className="text-primary-700/80 dark:text-dark-200/80 hover:text-primary-900 dark:hover:text-dark-50 font-sora text-sm uppercase tracking-widest"
+              whileHover={{ x: 5 }}
+            >
+              Resume →
+            </motion.a>
+            <motion.a
               href="https://sujitkumarshaportfolio.framer.website/"
               className="text-primary-700/80 dark:text-dark-200/80 hover:text-primary-900 dark:hover:text-dark-50 font-sora text-sm uppercase tracking-widest"
               whileHover={{ x: 5 }}
