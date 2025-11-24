@@ -6,25 +6,26 @@ const projects = [
     title: 'Student Assessment portal',
     description: 'A modern web application built with Python and Django',
     technologies: ['Django', 'Python', 'Bootstrap'],
-    link: '#',
+    link: 'https://assessmentportal-seven.vercel.app/',
     image: '/images/studentport.png'
   },
   {
     title: 'Smart_UPI Fraud Detection',
     description: "A website for detecting fraudulent UPI transactions using machine learning",
     technologies: ['Reactjs', 'Django', 'ML'],
-    link:'https://www.taqneeqfest.com/',
+    link:'https://smart-upi-fraud-detection.vercel.app/',
     image: '/images/upiappp.png'
   },
   {
     title: 'Location Safety Website',
-    description: 'A website for checking the)',
+    description: 'A website for checking the safety of a location',
     technologies: ['Next.js'],
-    link: 'https://www.socialconclave.in',
+    link: 'https://safe-t-one.vercel.app/',
     image: '/images/safet.png'
-  }
+  },
   
 ];
+  
 
 const Work = () => {
   return (
@@ -40,8 +41,10 @@ const Work = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-primary-900 dark:text-dark-50 mb-12 font-sora">
             <span className="border-b-2 border-primary-200 dark:border-dark-700 pb-2">Projects</span>
           </h2>
+         
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -51,7 +54,9 @@ const Work = () => {
                 viewport={{ once: true }}
                 className="group relative"
               >
-                <div className="absolute inset-0 border border-primary-200 dark:border-dark-600 group-hover:border-primary-300 dark:group-hover:border-dark-700 transition-colors duration-300">
+                
+                <div className="absolute inset-0 pointer-events-none border border-primary-200 dark:border-dark-600 group-hover:border-primary-300 dark:group-hover:border-dark-700 transition-colors duration-300">
+
                   <div className="absolute -top-1 -left-1 w-2 h-2 bg-primary-200 dark:bg-dark-600 group-hover:bg-primary-300 dark:group-hover:bg-dark-700 transition-colors duration-300"></div>
                   <div className="absolute -top-1 -right-1 w-2 h-2 bg-primary-200 dark:bg-dark-600 group-hover:bg-primary-300 dark:group-hover:bg-dark-700 transition-colors duration-300"></div>
                   <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-primary-200 dark:bg-dark-600 group-hover:bg-primary-300 dark:group-hover:bg-dark-700 transition-colors duration-300"></div>
@@ -83,7 +88,10 @@ const Work = () => {
                     ))}
                   </div>
                   <motion.a
-                    href={project.link}
+                   href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                      
                     className="inline-block text-gray-800/80 dark:text-white/80 hover:text-gray-900 dark:hover:text-white font-sora text-sm uppercase tracking-widest"
                     whileHover={{ x: 5 }}
                   >
@@ -91,7 +99,16 @@ const Work = () => {
                   </motion.a>
                 </div>
               </motion.div>
+              
             ))}
+             <button onClick={() => window.open('https://github.com/sujit-prog', '_blank')}>
+            <div className="flex items-center justify-center h-48 border-2 border-dashed border-primary-200 dark:border-dark-600 hover:border-primary-300 dark:hover:border-dark-700 transition-colors duration-300 cursor-pointer">
+              <span className="text-primary-700 dark:text-dark-200 font-sora text-sm uppercase tracking-widest hover:text-primary-900 dark:hover:text-dark-50">
+                View more →
+              </span>
+            </div>
+              </button>
+
           </div>
         </motion.div>
       </div>
