@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { SiPython, SiTypescript, SiReact, SiNodedotjs, SiJavascript, SiMysql, SiAstro, SiCplusplus, SiGit, SiDavinciresolve, SiDjango } from 'react-icons/si';
+import { SiPython, SiTypescript, SiReact, SiNodedotjs, SiJavascript, SiMysql, SiAstro, SiCplusplus, SiGit, SiDavinciresolve, SiDjango, SiMongodb, SiPostgresql } from 'react-icons/si';
 
 const skills = [
   { name: 'Python', icon: <SiPython /> },
@@ -12,6 +12,8 @@ const skills = [
   { name: 'C++', icon: <SiCplusplus /> },
   { name: 'Git', icon: <SiGit /> },
   { name: 'Django', icon: <SiDjango /> },
+  { name: 'MongoDB' , icon: <SiMongodb /> },
+  { name: 'PostgreSQL', icon: <SiPostgresql /> }
   
 ];
 
@@ -72,7 +74,7 @@ const About = () => {
                     key={skill.name}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    // transition={{ delay: 0.1 * index, duration: 0.5 }}
+                    
                     viewport={{ once: true }}
                     className="flex items-center gap-2 text-gray-800/80 dark:text-white/80 font-sora text-sm uppercase tracking-widest"
                     whileHover={{scale: 1.05}}

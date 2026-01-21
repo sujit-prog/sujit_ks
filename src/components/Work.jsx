@@ -101,17 +101,29 @@ const Work = () => {
               </motion.div>
               
             ))}
-             <button onClick={() => window.open('https://github.com/sujit-prog', '_blank')}>
-            <div className="flex items-center justify-center h-48 border-2 border-dashed border-primary-200 dark:border-dark-600 hover:border-primary-300 dark:hover:border-dark-700 transition-colors duration-300 cursor-pointer">
-              <span className="text-primary-700 dark:text-dark-200 font-sora text-sm uppercase tracking-widest hover:text-primary-900 dark:hover:text-dark-50">
-                View more →
-              </span>
-            </div>
-              </button>
+             
 
           </div>
         </motion.div>
       </div>
+      <div className="mt-16 flex justify-center">
+  <button
+    onClick={() => window.open('https://github.com/sujit-prog', '_blank')}
+    className="
+      px-12 py-5
+      border border-primary-200/60 dark:border-dark-700/60
+      text-primary-700/60 dark:text-dark-200/60
+      font-sora text-xs uppercase tracking-[0.25em]
+
+      hover:text-primary-900 dark:hover:text-dark-50
+      hover:border-primary-900/70 dark:hover:border-dark-50/70
+
+      transition-colors duration-300
+    "
+  >
+    View More 
+  </button>
+</div>
     </section>
   );
 };

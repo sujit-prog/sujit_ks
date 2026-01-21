@@ -90,33 +90,93 @@ const HeroSection = () => {
             transition={{ delay: 0.8, duration: 0.8 }}
             className="flex justify-center space-x-8"
           >
-            <motion.a
-              href="#work"
-              className="text-primary-700/80 dark:text-dark-200/80 hover:text-primary-900 dark:hover:text-dark-50 font-sora text-sm uppercase tracking-widest"
-              whileHover={{ x: 5 }}
-            >
-              View Work →
-            </motion.a>
+            
+          <motion.a
+  href="#work"
+  className="
+    inline-flex items-center justify-center
+    px-5 py-3
+
+    font-sora text-xs uppercase tracking-[0.22em]
+    text-primary-700/60 dark:text-dark-200/60
+
+    border border-primary-200/60 dark:border-dark-700/60
+
+    hover:text-primary-900 dark:hover:text-dark-50
+    hover:border-primary-900/80 dark:hover:border-dark-50/80
+
+    transition-colors duration-300
+  "
+  
+  whileHover={{ x: 6 }}
+  whileTap={{ scale: 0.97 }}
+>
+  View Work 
+</motion.a>
+
+
+            
             <motion.a
               href="#contact"
-              className="text-primary-700/80 dark:text-dark-200/80 hover:text-primary-900 dark:hover:text-dark-50 font-sora text-sm uppercase tracking-widest"
+              className="
+    
+    inline-flex items-center justify-center
+    px-5 py-3
+
+    font-sora text-xs uppercase tracking-[0.22em]
+    text-primary-700/60 dark:text-dark-200/60
+
+    border border-primary-200/60 dark:border-dark-700/60
+
+    hover:text-primary-900 dark:hover:text-dark-50
+    hover:border-primary-900/80 dark:hover:border-dark-50/80
+
+    transition-colors duration-300
+  "
               whileHover={{ x: 5 }}
             >
-              Contact →
+               
+              Contact 
             </motion.a>
             <motion.a
-              href="https://drive.google.com/file/d/12CBQeKGNe2DqMBJAbf45IC6B5zNSCFT3/view?usp=sharing"
-              className="text-primary-700/80 dark:text-dark-200/80 hover:text-primary-900 dark:hover:text-dark-50 font-sora text-sm uppercase tracking-widest"
+              href="https://drive.google.com/file/d/1Rr0q2ExNZl78I65jWoJinjaAuIHMVjNe/view?usp=sharing"
+              className="
+    inline-flex items-center justify-center
+    px-5 py-3
+
+    font-sora text-xs uppercase tracking-[0.22em]
+    text-primary-700/60 dark:text-dark-200/60
+
+    border border-primary-200/60 dark:border-dark-700/60
+
+    hover:text-primary-900 dark:hover:text-dark-50
+    hover:border-primary-900/80 dark:hover:border-dark-50/80
+
+    transition-colors duration-300
+  "
               whileHover={{ x: 5 }}
             >
-              Resume →
+              Resume 
             </motion.a>
             <motion.a
               href="https://sujitkumarshaportfolio.framer.website/"
-              className="text-primary-700/80 dark:text-dark-200/80 hover:text-primary-900 dark:hover:text-dark-50 font-sora text-sm uppercase tracking-widest"
+              className="
+    inline-flex items-center justify-center
+    px-5 py-3
+
+    font-sora text-xs uppercase tracking-[0.22em]
+    text-primary-700/60 dark:text-dark-200/60
+
+    border border-primary-200/60 dark:border-dark-700/60
+
+    hover:text-primary-900 dark:hover:text-dark-50
+    hover:border-primary-900/80 dark:hover:border-dark-50/80
+
+    transition-colors duration-300
+  "
               whileHover={{ x: 5 }}
             >
-              AKA  →
+              AKA  
             </motion.a>
           </motion.div>
         </motion.div>
@@ -129,6 +189,7 @@ const HeroSection = () => {
       >
         <div className="w-2 h-2 bg-primary-200 dark:bg-dark-700 rounded-full" />
       </motion.div>
+      
     </section>
   );
 };
