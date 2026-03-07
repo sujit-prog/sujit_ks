@@ -1,127 +1,191 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { 
+  Mail, Github, Linkedin, Instagram, Send, 
+  ShieldAlert, Globe, MessageSquare, Zap, Terminal
+} from 'lucide-react';
+
+const CONTACT_CHANNELS = [
+  {
+    text: 'E-mail',
+    href: 'mailto:10sujitkumarsha@gmail.com',
+    icon: <Mail size={20} />,
+    id: 'SIG_01',
+    status: 'ACTIVE'
+  },
+  {
+    text: 'GitHub',
+    href: 'https://github.com/sujit-prog',
+    icon: <Github size={20} />,
+    id: 'SIG_02',
+    status: 'ENCRYPTED'
+  },
+  {
+    text: 'LinkedIn',
+    href: 'https://linkedin.com/in/Sujit-Kumar-Sha-',
+    icon: <Linkedin size={20} />,
+    id: 'SIG_03',
+    status: 'STABLE'
+  },
+  {
+    text: 'Instagram',
+    href: 'https://instagram.com/sujit_shahaha',
+    icon: <Instagram size={20} />,
+    id: 'SIG_04',
+    status: 'VISIBLE'
+  },
+];
 
 const Contact = () => {
-  const contactLinks = [
-    {
-      text: 'E-mail',
-      href: 'mailto:10sujitkumarsha@gmail.com',
-    },
-    {
-      text: 'GitHub',
-      href: 'https://github.com/sujit-prog',
-    },
-    {
-      text: 'LinkedIn',
-      href: 'https://linkedin.com/in/Sujit-Kumar-Sha-',
-    },
-    {
-      text: 'Instagram',
-      href: 'https://instagram.com/sujit_shahaha',
-    },
-  ];
-
-  const newLinks = [
-    {
-      text: 'E-mail',
-      href: 'mailto:10sujitkumarsha@gmail.com',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 6h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z" />
-        </svg>
-      ),
-    },
-    {
-      text: 'GitHub',
-      href: 'https://github.com/sujit-prog',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 008 11c.5.1.7-.2.7-.5v-2c-3.3.7-4-1.6-4-1.6a3 3 0 00-1.3-1.7c-1-.7.1-.7.1-.7a2.5 2.5 0 011.9 1.3 2.5 2.5 0 003.4 1 2.5 2.5 0 01.8-1.6c-2.7-.3-5.5-1.3-5.5-6A4.5 4.5 0 017.5 6a4 4 0 01.1-3s1-.3 3.3 1.3a11 11 0 016 0C16.4 3 17.5 3 17.5 3a4 4 0 01.1 3 4.5 4.5 0 011.2 3c0 4.7-2.8 5.7-5.5 6a2.8 2.8 0 01.9 2v3c0 .3.2.6.7.5A11.5 11.5 0 0023.5 12C23.5 5.7 18.3.5 12 .5z" />
-        </svg>
-      ),
-    },
-    {
-      text: 'LinkedIn',
-      href: 'https://linkedin.com/in/Sujit-Kumar-Sha-',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M4.98 3.5A2.5 2.5 0 002.5 6a2.5 2.5 0 002.48 2.5A2.5 2.5 0 007.5 6a2.5 2.5 0 00-2.52-2.5zM3 8.98h3.96v12H3v-12zM9.95 8.98H14v1.7h.06c.56-1.1 1.9-2.26 3.94-2.26 4.2 0 4.97 2.76 4.97 6.35v7.91H19v-7.02c0-1.67-.03-3.8-2.3-3.8-2.3 0-2.65 1.8-2.65 3.67v7.15H9.95v-12z" />
-        </svg>
-      ),
-    },
-    {
-      text: 'Instagram',
-      href: 'https://instagram.com/sujit_shahaha',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-2a1.5 1.5 0 100 3 1.5 1.5 0 000-3z" />
-        </svg>
-      ),
-    },
-  ];
-
   return (
-    <section id="contact" className="min-h-screen bg-primary-50 dark:bg-dark-900 pt-20 transition-colors duration-200">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-900 dark:text-dark-50 mb-12 font-sora">
-            <span className="border-b-2 border-primary-200 dark:border-dark-700 pb-2">Contact</span>
-          </h2>
+    <section id="contact" className="min-h-screen bg-[#050505] text-white font-black py-20 px-6 relative overflow-hidden">
+      {/* HUD Scanline Overlay */}
+      <div className="absolute inset-0 z-50 pointer-events-none opacity-[0.05] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[size:100%_4px,3px_100%]" />
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-2xl"
-          >
-            <h3 className="text-2xl font-bold text-primary-900 dark:text-dark-50 mb-6 font-sora">
-              <span className="border-b border-primary-200 dark:border-dark-700 pb-1">GET IN TOUCH</span>
-            </h3>
-            <p className="text-primary-600/60 dark:text-dark-300/60 font-sora mb-12 text-lg">
-              Have a project in mind or want to collaborate? Feel free to reach out.
-            </p>
+      <div className="container mx-auto max-w-5xl relative z-10">
+        {/* Header Block */}
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-16 border-b-4 border-white/10 pb-8">
+          <div>
+            <motion.p 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="text-red-600 text-[10px] font-black uppercase tracking-[0.5em] mb-2"
+            >
+              Comms_Terminal_Initialized
+            </motion.p>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-6xl md:text-8xl font-black italic uppercase tracking-tighter leading-none"
+            >
+              OPEN_COMMS
+            </motion.h2>
+          </div>
+          <div className="mt-8 md:mt-0 flex flex-col items-end opacity-40 text-right">
+            <p className="text-[10px] uppercase tracking-widest">Protocol: Direct_Signal</p>
+            <p className="text-[10px] uppercase tracking-widest">Latency: 22ms</p>
+          </div>
+        </div>
 
-            {/* <div className="space-y-6">
-              {contactLinks.map((link, index) => (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Signal Transmission Section */}
+          <div className="space-y-8">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-zinc-900 border-4 border-black p-8 relative shadow-[12px_12px_0px_0px_rgba(255,0,0,1)]"
+            >
+              <div className="absolute -top-4 -left-4 w-12 h-12 border-t-8 border-l-8 border-red-600" />
+              
+              <h3 className="text-2xl font-black uppercase italic mb-4 tracking-tighter">GET_IN_TOUCH</h3>
+              <p className="text-zinc-400 font-bold italic leading-relaxed text-base mb-8">
+                Have a project in mind or want to collaborate? The terminal is open for transmission. 
+                Expect a response within standard operating cycles.
+              </p>
+
+              <div className="grid gap-4">
+                <div className="relative group">
+                  <input 
+                    type="text" 
+                    placeholder="SENDER_ID" 
+                    className="w-full bg-black border-2 border-zinc-800 p-4 text-xs font-black uppercase tracking-widest text-white outline-none focus:border-red-600 transition-colors"
+                  />
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-20 group-focus-within:opacity-100 transition-opacity">
+                    <Terminal size={14} />
+                  </div>
+                </div>
+
+                <div className="relative group">
+                  <textarea 
+                    rows="4" 
+                    placeholder="TRANSMISSION_CONTENT" 
+                    className="w-full bg-black border-2 border-zinc-800 p-4 text-xs font-black uppercase tracking-widest text-white outline-none focus:border-red-600 transition-colors resize-none"
+                  />
+                  <div className="absolute right-4 top-4 opacity-20 group-focus-within:opacity-100 transition-opacity">
+                    <MessageSquare size={14} />
+                  </div>
+                </div>
+
+                <motion.button 
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-red-600 text-white font-black uppercase p-5 tracking-[0.3em] flex items-center justify-center gap-4 hover:bg-red-500 transition-all shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1"
+                >
+                  <Send size={18} />
+                  INITIALIZE_UPLOAD
+                </motion.button>
+              </div>
+            </motion.div>
+
+            <div className="bg-red-600/5 border-2 border-dashed border-red-600/20 p-6 flex items-center gap-4">
+               <ShieldAlert className="text-red-600 shrink-0" size={24} />
+               <p className="text-[10px] font-black uppercase text-zinc-500 tracking-widest leading-relaxed">
+                 All signals are processed through secure gateways. No unauthorized interception detected.
+               </p>
+            </div>
+          </div>
+
+          {/* Signal Channels Grid */}
+          <div className="space-y-6">
+            <div className="flex items-center justify-between border-b border-white/10 pb-2">
+              <p className="text-[10px] font-black uppercase text-zinc-500 tracking-[0.4em]">Signal_Channels</p>
+              <Zap size={14} className="text-yellow-400" />
+            </div>
+            
+            <div className="grid grid-cols-1 gap-4">
+              {CONTACT_CHANNELS.map((link, idx) => (
                 <motion.a
-                  key={index}
+                  key={idx}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-primary-700/80 dark:text-dark-200/80 hover:text-primary-900 dark:hover:text-dark-50 font-sora text-sm uppercase tracking-widest transition-colors duration-300"
-                  whileHover={{ x: 10 }}
+                  initial={{ x: 30, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ x: 10, backgroundColor: 'rgba(255, 0, 0, 0.1)', borderColor: '#dc2626' }}
+                  className="bg-zinc-900 border-2 border-black p-5 flex items-center justify-between group cursor-pointer transition-all"
                 >
-                  {link.text}
-                </motion.a>
-              ))}
-            </div> */}
-
-            <div className="space-y-6">
-              {newLinks.map((link, index) => (
-                <motion.a
-                  key={index}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center text-primary-700/80 dark:text-dark-200/80 hover:text-primary-900 dark:hover:text-dark-50 font-sora text-sm uppercase tracking-widest transition-colors duration-300"
-                  whileHover={{ x: 10 }}
-                >
-                  {link.icon}
-                  {link.text}
+                  <div className="flex items-center gap-6">
+                    <span className="text-red-600 group-hover:scale-125 group-hover:rotate-12 transition-all duration-300">
+                      {link.icon}
+                    </span>
+                    <div>
+                      <p className="text-sm font-black uppercase tracking-tighter text-white group-hover:text-red-500 transition-colors">
+                        {link.text}
+                      </p>
+                      <p className="text-[7px] font-bold uppercase text-zinc-600">
+                        UID: {link.id}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-col items-end gap-1">
+                    <div className="flex gap-0.5">
+                      {[...Array(3)].map((_, i) => (
+                        <div key={i} className={`w-1 h-1 ${i === 2 ? 'bg-red-600 animate-pulse' : 'bg-red-600/20'}`} />
+                      ))}
+                    </div>
+                    <p className="text-[8px] font-black text-emerald-500 tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">
+                      {link.status}
+                    </p>
+                  </div>
                 </motion.a>
               ))}
             </div>
 
-
-          </motion.div>
-        </motion.div>
+            <div className="pt-8 opacity-20 group">
+              <div className="flex items-center gap-4">
+                <Globe size={16} />
+                <div className="h-[2px] flex-1 bg-gradient-to-r from-white to-transparent" />
+              </div>
+              <p className="text-[8px] font-black uppercase tracking-[1em] mt-4">Global_Transmission_Node</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

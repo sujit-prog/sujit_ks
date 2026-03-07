@@ -3,10 +3,10 @@ import { ThemeProvider } from "./context/ThemeContext";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import About from "./components/About";
-import Work from "./components/Work";
-import Blog from "./components/Blog";
+import Projects from "./components/Projects";
+import Experience from "./components/Experience";
 import Contact from "./components/Contact";
-import Value from "./components/Value";
+
 
 const App = () => {
   return (
@@ -16,9 +16,8 @@ const App = () => {
         <div>
           <HeroSection />
           <About />
-          <Work />
-          {/* <Blog /> */}
-          {/* <Value /> */}
+          <Projects />
+          { <Experience /> }
           <Contact />
         </div>
       </div>
