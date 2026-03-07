@@ -1,24 +1,23 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
-import { Menu, X, Lock, Unlock, ShieldAlert, Zap, ChevronRight, Gauge } from 'lucide-react';
+import { Menu, X, Lock, Unlock, ShieldAlert, Zap, ChevronRight } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const navLinks = [
   { id: 'hero', label: 'IGNITION', gear: 'P' },
   { id: 'about', label: 'PILOT', gear: '1' },
   { id: 'projects', label: 'GARAGE', gear: '2' },
-  { id: 'experience', label: 'TRACK_HIS', gear:'3'},
+  { id: 'experience', label: 'TRACK_HIS', gear: '3' },
   { id: 'contact', label: 'COMMS', gear: '4' },
-  
+
 ];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  
-  // Internal Theme State (Fallback for preview environments)
-  const [isDarkMode, setIsDarkMode] = useState(true);
-  const toggleTheme = () => setIsDarkMode(!isDarkMode);
+
+  const { isDarkMode, toggleTheme } = useTheme();
 
   // Scroll Progress Logic (RPM Gauge Style)
   const { scrollYProgress } = useScroll();
@@ -31,11 +30,11 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
+
       // Intersection Logic for Active Section
       const scrollPosition = window.scrollY + 200;
       const sections = navLinks.map(link => document.getElementById(link.id));
-      
+
       for (let i = sections.length - 1; i >= 0; i--) {
         if (sections[i] && scrollPosition >= sections[i].offsetTop) {
           setActiveSection(navLinks[i].id);
@@ -65,27 +64,26 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed w-full z-[150] transition-all duration-500 ${
-        isScrolled 
-          ? 'py-0 bg-black/95 border-b-2 border-red-600/30' 
-          : 'py-4 bg-transparent'
-      }`}
+      className={`fixed w-full z-[150] transition-all duration-500 ${isScrolled
+        ? 'py-0 bg-black/95 border-b-2 border-red-600/30'
+        : 'py-4 bg-transparent'
+        }`}
     >
       {/* RPM / SCROLL PROGRESS BAR */}
-      <motion.div 
+      <motion.div
         className="absolute top-0 left-0 right-0 h-1 bg-red-600 origin-left z-[160] shadow-[0_0_15px_rgba(220,38,38,0.8)]"
         style={{ scaleX }}
       />
 
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          
+
           {/* BRAND BADGE (Logo) */}
           <motion.a
             href="#hero"
-            onClick={(e) => { 
-              e.preventDefault(); 
-              smoothScrollTo('hero'); 
+            onClick={(e) => {
+              e.preventDefault();
+              smoothScrollTo('hero');
             }}
             whileHover={{ scale: 1.02 }}
             className="flex items-center gap-3 cursor-pointer group"
@@ -118,9 +116,8 @@ const Navbar = () => {
                 <button
                   key={id}
                   onClick={() => smoothScrollTo(id)}
-                  className={`relative px-5 py-2 flex flex-col items-center group transition-all ${
-                    activeSection === id ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'
-                  }`}
+                  className={`relative px-5 py-2 flex flex-col items-center group transition-all ${activeSection === id ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'
+                    }`}
                 >
                   <span className={`text-[8px] font-black mb-1 transition-colors ${activeSection === id ? 'text-red-500' : 'text-zinc-700'}`}>
                     GEAR_{gear}
@@ -128,9 +125,9 @@ const Navbar = () => {
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] font-mono italic">
                     {label}
                   </span>
-                  
+
                   {activeSection === id && (
-                    <motion.div 
+                    <motion.div
                       layoutId="navGlow"
                       className="absolute inset-0 bg-red-600/5 border-b-2 border-red-600 z-0"
                     />
@@ -139,34 +136,51 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* KEY FOB TOGGLE */}
+            {/* ENGINE START TOGGLE */}
             <div className="h-10 w-[1px] bg-zinc-800" />
             <motion.button
               onClick={toggleTheme}
-              whileHover={{ y: -2 }}
-              className={`group relative w-12 h-16 rounded-xl border-2 border-black flex flex-col items-center justify-between p-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all ${
-                isDarkMode ? 'bg-zinc-900' : 'bg-zinc-200'
-              }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative flex flex-col items-center justify-center cursor-pointer ml-2"
+              title="Toggle Theme"
             >
-              <div className={`w-1.5 h-1.5 rounded-full ${isDarkMode ? 'bg-red-900' : 'bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-pulse'}`} />
-              {isDarkMode ? <Lock size={14} className="text-zinc-700" /> : <Unlock size={14} className="text-blue-600" />}
-              <div className="text-[6px] font-black uppercase text-zinc-500 group-hover:text-red-500 transition-colors">
-                {isDarkMode ? 'SAFE' : 'RUN'}
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-zinc-300 via-zinc-400 to-zinc-600 p-[3px] shadow-[0_2px_5px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.8)] flex items-center justify-center">
+                <div className="w-full h-full rounded-full bg-zinc-900 p-[2px] shadow-[inset_0_3px_6px_rgba(0,0,0,1)] flex items-center justify-center">
+                  <div className={`w-full h-full rounded-full flex flex-col items-center justify-center transition-all duration-300 border border-black/40 relative overflow-hidden ${!isDarkMode ? 'bg-gradient-to-b from-red-500 via-red-600 to-red-800 shadow-[inset_0_1px_2px_rgba(255,255,255,0.6),0_0_15px_rgba(239,68,68,0.8)]' : 'bg-gradient-to-b from-zinc-800 to-zinc-950 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]'}`}>
+                    {/* Glossy overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent rounded-full h-1/2"></div>
+
+                    <span className={`text-[4px] font-black uppercase tracking-widest leading-none select-none z-10 ${!isDarkMode ? 'text-white drop-shadow-[0_0_2px_rgba(255,255,255,1)]' : 'text-zinc-600'}`}>ENGINE</span>
+                    <span className={`text-[6px] font-black uppercase tracking-[0.2em] leading-none mt-[1px] select-none z-10 ${!isDarkMode ? 'text-white drop-shadow-[0_0_2px_rgba(255,255,255,1)]' : 'text-zinc-500'}`}>START</span>
+                    <span className={`text-[3.5px] font-black uppercase tracking-widest leading-none mt-[1px] select-none z-10 ${!isDarkMode ? 'text-white/80' : 'text-zinc-700'}`}>STOP</span>
+                  </div>
+                </div>
               </div>
             </motion.button>
           </div>
 
           {/* MOBILE CONTROLS */}
           <div className="flex lg:hidden items-center gap-4">
-            <button
+            <motion.button
               onClick={toggleTheme}
-              className={`w-10 h-10 border-2 border-zinc-800 rounded flex items-center justify-center ${isDarkMode ? 'text-zinc-500' : 'text-blue-500 bg-white shadow-lg'}`}
+              whileTap={{ scale: 0.9 }}
+              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-zinc-300 to-zinc-600 p-[2px] shadow-[0_2px_4px_rgba(0,0,0,0.5)] flex items-center justify-center relative"
+              title="Toggle Theme"
             >
-              {isDarkMode ? <Lock size={18} /> : <Unlock size={18} />}
-            </button>
+              <div className="w-full h-full rounded-full bg-zinc-900 p-[1.5px] shadow-[inset_0_2px_4px_rgba(0,0,0,1)] flex items-center justify-center">
+                <div className={`w-full h-full rounded-full flex flex-col items-center justify-center transition-all duration-300 border border-black/40 relative overflow-hidden ${!isDarkMode ? 'bg-gradient-to-b from-red-500 to-red-800 shadow-[inset_0_1px_2px_rgba(255,255,255,0.6),0_0_10px_rgba(239,68,68,0.8)]' : 'bg-gradient-to-b from-zinc-800 to-zinc-950'}`}>
+                  {/* Glossy overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent rounded-full h-1/2"></div>
+
+                  <span className={`text-[3px] font-black uppercase tracking-widest leading-none z-10 ${!isDarkMode ? 'text-white' : 'text-zinc-600'}`}>ENGINE</span>
+                  <span className={`text-[4.5px] font-black uppercase tracking-widest leading-none mt-[0.5px] z-10 ${!isDarkMode ? 'text-white' : 'text-zinc-500'}`}>START</span>
+                </div>
+              </div>
+            </motion.button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 flex items-center justify-center text-red-600"
+              className="w-12 h-12 sm:w-14 sm:h-14 bg-zinc-900 border-2 border-zinc-800 flex items-center justify-center text-red-600"
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -188,7 +202,7 @@ const Navbar = () => {
                 <span className="text-[10px] font-black text-zinc-600 tracking-[0.4em] uppercase">Navigation_Matrix</span>
                 <button onClick={() => setIsMenuOpen(false)}><X className="text-red-600" /></button>
               </div>
-              
+
               <div className="flex flex-col gap-6">
                 {navLinks.map(({ id, label, gear }) => (
                   <motion.button
@@ -209,17 +223,17 @@ const Navbar = () => {
               </div>
 
               <div className="mt-auto border-t border-zinc-900 pt-8 flex flex-col gap-4">
-                 <div className="flex items-center gap-3 text-zinc-700">
-                    <ShieldAlert size={14} />
-                    <span className="text-[9px] font-mono font-bold uppercase tracking-widest italic">User_Session: Pilot_Sujit</span>
-                 </div>
-                 <div className="h-1 w-full bg-zinc-900 overflow-hidden">
-                    <motion.div 
-                      animate={{ x: ['-100%', '100%'] }} 
-                      transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-                      className="h-full w-1/2 bg-red-600"
-                    />
-                 </div>
+                <div className="flex items-center gap-3 text-zinc-700">
+                  <ShieldAlert size={14} />
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest italic">User_Session: Pilot_Sujit</span>
+                </div>
+                <div className="h-1 w-full bg-zinc-900 overflow-hidden">
+                  <motion.div
+                    animate={{ x: ['-100%', '100%'] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+                    className="h-full w-1/2 bg-red-600"
+                  />
+                </div>
               </div>
             </div>
           </motion.div>

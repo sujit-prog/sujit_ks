@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Mail, Github, Linkedin, Instagram, Send, 
+import {
+  Mail, Github, Linkedin, Instagram, Send,
   ShieldAlert, Globe, MessageSquare, Zap, Terminal
 } from 'lucide-react';
 
@@ -38,7 +38,7 @@ const CONTACT_CHANNELS = [
 
 const Contact = () => {
   return (
-    <section id="contact" className="min-h-screen bg-[#050505] text-white font-black py-20 px-6 relative overflow-hidden">
+    <section id="contact" className="min-h-screen bg-slate-50 dark:bg-[#050505] text-zinc-900 dark:text-white font-black py-20 px-6 relative overflow-hidden transition-colors duration-700">
       {/* HUD Scanline Overlay */}
       <div className="absolute inset-0 z-50 pointer-events-none opacity-[0.05] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[size:100%_4px,3px_100%]" />
 
@@ -46,7 +46,7 @@ const Contact = () => {
         {/* Header Block */}
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-16 border-b-4 border-white/10 pb-8">
           <div>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -54,11 +54,11 @@ const Contact = () => {
             >
               Comms_Terminal_Initialized
             </motion.p>
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-6xl md:text-8xl font-black italic uppercase tracking-tighter leading-none"
+              className="text-5xl sm:text-6xl md:text-8xl font-black italic uppercase tracking-tighter leading-none"
             >
               OPEN_COMMS
             </motion.h2>
@@ -72,26 +72,26 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Signal Transmission Section */}
           <div className="space-y-8">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-zinc-900 border-4 border-black p-8 relative shadow-[12px_12px_0px_0px_rgba(255,0,0,1)]"
+              className="bg-zinc-100 dark:bg-zinc-900 border-4 border-black p-6 sm:p-8 relative shadow-[8px_8px_0px_0px_rgba(255,0,0,1)] sm:shadow-[12px_12px_0px_0px_rgba(255,0,0,1)] transition-colors"
             >
               <div className="absolute -top-4 -left-4 w-12 h-12 border-t-8 border-l-8 border-red-600" />
-              
+
               <h3 className="text-2xl font-black uppercase italic mb-4 tracking-tighter">GET_IN_TOUCH</h3>
               <p className="text-zinc-400 font-bold italic leading-relaxed text-base mb-8">
-                Have a project in mind or want to collaborate? The terminal is open for transmission. 
+                Have a project in mind or want to collaborate? The terminal is open for transmission.
                 Expect a response within standard operating cycles.
               </p>
 
               <div className="grid gap-4">
                 <div className="relative group">
-                  <input 
-                    type="text" 
-                    placeholder="SENDER_ID" 
-                    className="w-full bg-black border-2 border-zinc-800 p-4 text-xs font-black uppercase tracking-widest text-white outline-none focus:border-red-600 transition-colors"
+                  <input
+                    type="text"
+                    placeholder="SENDER_ID"
+                    className="w-full bg-white dark:bg-black border-2 border-zinc-200 dark:border-zinc-800 p-4 text-xs font-black uppercase tracking-widest text-zinc-900 dark:text-white outline-none focus:border-red-600 transition-colors"
                   />
                   <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-20 group-focus-within:opacity-100 transition-opacity">
                     <Terminal size={14} />
@@ -99,17 +99,17 @@ const Contact = () => {
                 </div>
 
                 <div className="relative group">
-                  <textarea 
-                    rows="4" 
-                    placeholder="TRANSMISSION_CONTENT" 
-                    className="w-full bg-black border-2 border-zinc-800 p-4 text-xs font-black uppercase tracking-widest text-white outline-none focus:border-red-600 transition-colors resize-none"
+                  <textarea
+                    rows="4"
+                    placeholder="TRANSMISSION_CONTENT"
+                    className="w-full bg-white dark:bg-black border-2 border-zinc-200 dark:border-zinc-800 p-4 text-xs font-black uppercase tracking-widest text-zinc-900 dark:text-white outline-none focus:border-red-600 transition-colors resize-none"
                   />
                   <div className="absolute right-4 top-4 opacity-20 group-focus-within:opacity-100 transition-opacity">
                     <MessageSquare size={14} />
                   </div>
                 </div>
 
-                <motion.button 
+                <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="bg-red-600 text-white font-black uppercase p-5 tracking-[0.3em] flex items-center justify-center gap-4 hover:bg-red-500 transition-all shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1"
@@ -121,10 +121,10 @@ const Contact = () => {
             </motion.div>
 
             <div className="bg-red-600/5 border-2 border-dashed border-red-600/20 p-6 flex items-center gap-4">
-               <ShieldAlert className="text-red-600 shrink-0" size={24} />
-               <p className="text-[10px] font-black uppercase text-zinc-500 tracking-widest leading-relaxed">
-                 All signals are processed through secure gateways. No unauthorized interception detected.
-               </p>
+              <ShieldAlert className="text-red-600 shrink-0" size={24} />
+              <p className="text-[10px] font-black uppercase text-zinc-500 tracking-widest leading-relaxed">
+                All signals are processed through secure gateways. No unauthorized interception detected.
+              </p>
             </div>
           </div>
 
@@ -134,7 +134,7 @@ const Contact = () => {
               <p className="text-[10px] font-black uppercase text-zinc-500 tracking-[0.4em]">Signal_Channels</p>
               <Zap size={14} className="text-yellow-400" />
             </div>
-            
+
             <div className="grid grid-cols-1 gap-4">
               {CONTACT_CHANNELS.map((link, idx) => (
                 <motion.a
@@ -147,14 +147,14 @@ const Contact = () => {
                   transition={{ delay: idx * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ x: 10, backgroundColor: 'rgba(255, 0, 0, 0.1)', borderColor: '#dc2626' }}
-                  className="bg-zinc-900 border-2 border-black p-5 flex items-center justify-between group cursor-pointer transition-all"
+                  className="bg-zinc-100 dark:bg-zinc-900 border-2 border-black p-5 flex items-center justify-between group cursor-pointer transition-all"
                 >
                   <div className="flex items-center gap-6">
                     <span className="text-red-600 group-hover:scale-125 group-hover:rotate-12 transition-all duration-300">
                       {link.icon}
                     </span>
                     <div>
-                      <p className="text-sm font-black uppercase tracking-tighter text-white group-hover:text-red-500 transition-colors">
+                      <p className="text-sm font-black uppercase tracking-tighter text-zinc-900 dark:text-white group-hover:text-red-500 transition-colors">
                         {link.text}
                       </p>
                       <p className="text-[7px] font-bold uppercase text-zinc-600">
@@ -162,7 +162,7 @@ const Contact = () => {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex flex-col items-end gap-1">
                     <div className="flex gap-0.5">
                       {[...Array(3)].map((_, i) => (

@@ -1,43 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Briefcase, 
-  Calendar, 
-  MapPin, 
-  ShieldAlert, 
-  Trophy, 
+import {
+  Briefcase,
+  Calendar,
+  MapPin,
+  ShieldAlert,
+  Trophy,
   Zap,
   Activity,
   ChevronRight
 } from 'lucide-react';
 
-/**
- * FALLBACK THEME LOGIC
- * Integrated directly to resolve the "Could not resolve ../context/ThemeContext" error
- * while ensuring the component reacts to global theme changes.
- */
-const useTheme = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
-  useEffect(() => {
-    // Check initial state
-    setIsDarkMode(document.documentElement.classList.contains('dark'));
-
-    // Observe changes to the document class for real-time syncing
-    const observer = new MutationObserver(() => {
-      setIsDarkMode(document.documentElement.classList.contains('dark'));
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  return { isDarkMode };
-};
+import { useTheme } from '../context/ThemeContext';
 
 const EXPERIENCE_LOGS = [
   {
@@ -84,24 +58,24 @@ const Experience = () => {
         {/* HEADER BLOCK */}
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-20 border-b-4 border-zinc-800 pb-8">
           <div>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               className="text-red-600 text-[10px] font-black uppercase tracking-[0.6em] mb-2"
             >
               System_Track_Records_v3.0
             </motion.p>
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-6xl md:text-8xl font-black italic uppercase tracking-tighter leading-none"
+              className="text-5xl sm:text-6xl md:text-8xl font-black italic uppercase tracking-tighter leading-none"
             >
               TRACK_<span className="text-red-600">HISTORY</span>
             </motion.h2>
           </div>
           <div className="mt-8 md:mt-0 flex flex-col items-end opacity-40">
             <div className="flex gap-2 mb-2">
-               {[...Array(5)].map((_, i) => <div key={i} className={`w-1 h-4 ${i < 3 ? 'bg-red-600' : 'bg-zinc-800'}`} />)}
+              {[...Array(5)].map((_, i) => <div key={i} className={`w-1 h-4 ${i < 3 ? 'bg-red-600' : 'bg-zinc-800'}`} />)}
             </div>
             <p className="text-[9px] font-mono uppercase tracking-widest">Pilot_Rank: S-Class</p>
           </div>
@@ -111,17 +85,17 @@ const Experience = () => {
         <div className="relative">
           {/* Central Rail */}
           <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-1 bg-zinc-800 md:-translate-x-1/2 hidden sm:block">
-            <motion.div 
+            <motion.div
               initial={{ height: 0 }}
               whileInView={{ height: '100%' }}
               transition={{ duration: 1.5 }}
-              className="w-full bg-gradient-to-b from-red-600 to-transparent" 
+              className="w-full bg-gradient-to-b from-red-600 to-transparent"
             />
           </div>
 
           <div className="flex flex-col gap-16">
             {EXPERIENCE_LOGS.map((log, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -134,9 +108,9 @@ const Experience = () => {
 
                 {/* Content Side */}
                 <div className={`w-full md:w-1/2 ${idx % 2 === 0 ? 'md:pr-16' : 'md:pl-16'}`}>
-                  <motion.div 
+                  <motion.div
                     whileHover={{ scale: 1.02 }}
-                    className={`bg-zinc-100 dark:bg-zinc-900 border-4 border-black shadow-[8px_8px_0px_0px_rgba(220,38,38,1)] p-8 relative overflow-hidden group transition-colors`}
+                    className={`bg-zinc-100 dark:bg-zinc-900 border-4 border-black shadow-[6px_6px_0px_0px_rgba(220,38,38,1)] sm:shadow-[8px_8px_0px_0px_rgba(220,38,38,1)] p-6 sm:p-8 relative overflow-hidden group transition-colors`}
                   >
                     {/* Decorative Gear Tag */}
                     <div className="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-black px-3 py-1 italic skew-x-[-20deg] translate-x-2 -translate-y-1">
@@ -159,8 +133,8 @@ const Experience = () => {
                       </div>
 
                       <div className="flex flex-wrap gap-4 opacity-60 text-[10px] font-bold uppercase tracking-widest">
-                        <div className="flex items-center gap-1"><Calendar size={12}/> {log.period}</div>
-                        <div className="flex items-center gap-1"><MapPin size={12}/> {log.location}</div>
+                        <div className="flex items-center gap-1"><Calendar size={12} /> {log.period}</div>
+                        <div className="flex items-center gap-1"><MapPin size={12} /> {log.location}</div>
                       </div>
 
                       <p className="text-zinc-600 dark:text-zinc-400 text-sm font-bold italic leading-relaxed text-left">
@@ -190,7 +164,7 @@ const Experience = () => {
         </div>
 
         {/* FOOTER CALLOUT */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           className="mt-32 flex flex-col items-center gap-6"
