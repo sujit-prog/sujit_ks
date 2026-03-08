@@ -19,17 +19,17 @@ const EXPERIENCE_LOGS = [
     role: "JAVA DEVELOPMENT INTERN",
     period: "2026",
     location: "REMOTE_SECTOR",
-    description: "Orchestrating high-performance web architectures and managing neural-interface dashboard systems.",
-    achievements: ["Boosted Load Velocity by 40%", "Deploys: 500+", "Zero Downtime achieved"],
+    description: "Orchestrated high-performance web architectures and managed neural-interface dashboard systems.",
+    achievements: ["Created Medivault", "Collaborated with team", "Best project group"],
     gear: "5"
   },
   {
     company: "TALESOUL",
-    role: "Full Stack Pilot",
+    role: "Backend Developer",
     period: "2025 - 2026",
     location: "SAMBALPUR",
-    description: "Developing responsive combat interfaces and optimizing data-stream processing for real-time tracking.",
-    achievements: ["Integrated 12+ APIs", "Optimized Core Kernel"],
+    description: "Developed Admin and User backend interfaces and optimized data-stream processing for real-time tracking.",
+    achievements: ["Integrated 12+ APIs", "Optimized Database"],
     gear: "4"
   },
   {
@@ -37,8 +37,8 @@ const EXPERIENCE_LOGS = [
     role: "AI AZURE INTERN",
     period: "2025",
     location: "REMOTE",
-    description: "Maintaining legacy subsystems and refactoring spaghetti-code corridors for improved navigation.",
-    achievements: ["Refactored UI/UX Modules", "Bug Hunt Master"],
+    description: "Developed AI predictor and optimized data-stream processing for real-time tracking.",
+    achievements: ["Completed Azure courses on Microsoft portal", "created AI bike rental prediction model"],
     gear: "3"
   }
 ];
@@ -61,7 +61,7 @@ const Experience = () => {
             <motion.p
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="text-red-600 text-[10px] font-black uppercase tracking-[0.6em] mb-2"
+              className="text-blue-600 dark:text-red-600 text-[10px] font-black uppercase tracking-[0.6em] mb-2"
             >
               System_Track_Records_v3.0
             </motion.p>
@@ -70,14 +70,14 @@ const Experience = () => {
               whileInView={{ opacity: 1, y: 0 }}
               className="text-5xl sm:text-6xl md:text-8xl font-black italic uppercase tracking-tighter leading-none"
             >
-              TRACK_<span className="text-red-600">HISTORY</span>
+              WORK_<span className="text-blue-600 dark:text-red-600">HISTORY</span>
             </motion.h2>
           </div>
           <div className="mt-8 md:mt-0 flex flex-col items-end opacity-40">
             <div className="flex gap-2 mb-2">
-              {[...Array(5)].map((_, i) => <div key={i} className={`w-1 h-4 ${i < 3 ? 'bg-red-600' : 'bg-zinc-800'}`} />)}
+              {[...Array(5)].map((_, i) => <div key={i} className={`w-1 h-4 ${i < 3 ? 'bg-blue-600 dark:bg-red-600' : 'bg-zinc-800'}`} />)}
             </div>
-            <p className="text-[9px] font-mono uppercase tracking-widest">Pilot_Rank: S-Class</p>
+            <p className="text-[9px] font-mono uppercase tracking-widest">DEV_Rank: S-Class</p>
           </div>
         </div>
 
@@ -89,7 +89,7 @@ const Experience = () => {
               initial={{ height: 0 }}
               whileInView={{ height: '100%' }}
               transition={{ duration: 1.5 }}
-              className="w-full bg-gradient-to-b from-red-600 to-transparent"
+              className="w-full bg-gradient-to-b from-blue-600 dark:from-red-600 to-transparent"
             />
           </div>
 
@@ -104,7 +104,7 @@ const Experience = () => {
                 className={`relative flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center`}
               >
                 {/* Node Point */}
-                <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-red-600 border-4 border-black z-20 md:-translate-x-1/2 hidden sm:block shadow-[0_0_15px_rgba(220,38,38,0.5)]" />
+                <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-blue-600 dark:bg-red-600 border-4 border-black z-20 md:-translate-x-1/2 hidden sm:block shadow-[0_0_15px_rgba(220,38,38,0.5)]" />
 
                 {/* Content Side */}
                 <div className={`w-full md:w-1/2 ${idx % 2 === 0 ? 'md:pr-16' : 'md:pl-16'}`}>
@@ -113,12 +113,12 @@ const Experience = () => {
                     className={`bg-zinc-100 dark:bg-zinc-900 border-4 border-black shadow-[6px_6px_0px_0px_rgba(220,38,38,1)] sm:shadow-[8px_8px_0px_0px_rgba(220,38,38,1)] p-6 sm:p-8 relative overflow-hidden group transition-colors`}
                   >
                     {/* Decorative Gear Tag */}
-                    <div className="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-black px-3 py-1 italic skew-x-[-20deg] translate-x-2 -translate-y-1">
+                    <div className="absolute top-0 right-0 bg-blue-600 dark:bg-red-600 text-white text-[10px] font-black px-3 py-1 italic skew-x-[-20deg] translate-x-2 -translate-y-1">
                       GEAR_{log.gear}
                     </div>
 
                     <div className="flex flex-col gap-4">
-                      <div className="flex items-center gap-3 text-red-600">
+                      <div className="flex items-center gap-3 text-blue-600 dark:text-red-600">
                         <Activity size={16} className="animate-pulse" />
                         <span className="text-[10px] font-mono font-bold tracking-[0.3em] uppercase">Session_Verified</span>
                       </div>
@@ -127,7 +127,7 @@ const Experience = () => {
                         <h3 className="text-3xl font-black italic uppercase tracking-tighter leading-none mb-1">
                           {log.role}
                         </h3>
-                        <p className="text-red-600 text-sm font-black tracking-widest uppercase">
+                        <p className="text-blue-600 dark:text-red-600 text-sm font-black tracking-widest uppercase">
                           @{log.company}
                         </p>
                       </div>
@@ -144,7 +144,7 @@ const Experience = () => {
                       <div className="flex flex-col gap-2 border-t border-zinc-200 dark:border-zinc-800 pt-4">
                         {log.achievements.map((item, i) => (
                           <div key={i} className="flex items-center gap-3 group/item">
-                            <ChevronRight size={14} className="text-red-600 group-hover/item:translate-x-1 transition-transform" />
+                            <ChevronRight size={14} className="text-blue-600 dark:text-red-600 group-hover/item:translate-x-1 transition-transform" />
                             <span className="text-[11px] font-black uppercase tracking-wider opacity-80">{item}</span>
                           </div>
                         ))}
@@ -152,7 +152,7 @@ const Experience = () => {
                     </div>
 
                     {/* Background Glow */}
-                    <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-red-600/5 blur-3xl rounded-full group-hover:bg-red-600/10 transition-all duration-500" />
+                    <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-600/5 dark:bg-red-600/5 blur-3xl rounded-full group-hover:bg-blue-600/10 dark:bg-red-600/10 transition-all duration-500" />
                   </motion.div>
                 </div>
 
@@ -170,9 +170,9 @@ const Experience = () => {
           className="mt-32 flex flex-col items-center gap-6"
         >
           <div className="flex items-center gap-4">
-            <div className="w-12 h-1 bg-red-600" />
-            <ShieldAlert size={20} className="text-red-600 animate-bounce" />
-            <div className="w-12 h-1 bg-red-600" />
+            <div className="w-12 h-1 bg-blue-600 dark:bg-red-600" />
+            <ShieldAlert size={20} className="text-blue-600 dark:text-red-600 animate-bounce" />
+            <div className="w-12 h-1 bg-blue-600 dark:bg-red-600" />
           </div>
           <p className="text-xs font-mono font-black tracking-[0.4em] uppercase opacity-40 italic">End_Of_Transmission</p>
         </motion.div>

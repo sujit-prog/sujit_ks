@@ -4,37 +4,37 @@ import { ArrowUpRight, Github, ShieldAlert, Maximize2 } from 'lucide-react';
 
 const PROJECTS = [
   {
-    title: 'Student Assessment portal',
+    title: 'Acadvault',
     description: 'A modern web application built with Python and Django for academic tracking and performance analytics.',
-    technologies: ['Django', 'Python', 'Bootstrap'],
+    technologies: ['Django', 'Python', 'Supabase'],
     link: 'https://assessmentportal-seven.vercel.app/',
     image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800&auto=format&fit=crop',
     color: 'bg-yellow-400'
   },
 
   {
-    title: 'Location Safety Website',
+    title: 'SAfe_T',
     description: 'Real-time safety assessment based on location data, community reports, and emergency service proximity.',
-    technologies: ['Next.js', 'Maps API', 'Tailwind'],
+    technologies: ['Next.js', 'OSM', 'prisma ORM'],
     link: 'https://safe-t-one.vercel.app/',
     image: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=800&auto=format&fit=crop',
     color: 'bg-blue-600'
   },
   {
-    "title": "MedConnect Portal",
+    "title": "Medivault",
     "description": "A comprehensive healthcare hub enabling seamless doctor-patient interactions, automated appointment scheduling, and secure digital medical record access.",
-    "technologies": ["React", "Firebase Auth", "Node.js", "MongoDB"],
+    "technologies": ["React", "Java Springboot", "MYSQL", "Onrender"],
     "link": "https://medivault-zeta.vercel.app",
     "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop",
     "color": "bg-emerald-600"
   },
   {
-    title: 'Smart_UPI Fraud Detection',
+    title: 'Guard_UPI',
     description: "Detecting fraudulent transactions using advanced machine learning models and real-time verification.",
     technologies: ['Reactjs', 'Django', 'ML'],
     link: 'https://smart-upi-fraud-detection.vercel.app/',
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop',
-    color: 'bg-red-600'
+    color: 'bg-blue-600 dark:bg-red-600'
   }
 ];
 
@@ -51,7 +51,7 @@ const Projects = () => {
             <motion.p
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="text-red-600 text-[10px] font-black uppercase tracking-[0.5em] mb-2"
+              className="text-blue-600 dark:text-red-600 text-[10px] font-black uppercase tracking-[0.5em] mb-2"
             >
               Subsystem_Garage_01
             </motion.p>
@@ -67,7 +67,7 @@ const Projects = () => {
             <p className="text-[10px] uppercase tracking-widest">Active_Modules: 03</p>
             <p className="text-[10px] uppercase tracking-widest">System_Status: Optimal</p>
             <div className="flex gap-1 mt-2">
-              <div className="w-2 h-2 bg-red-600 animate-pulse" />
+              <div className="w-2 h-2 bg-blue-600 dark:bg-red-600 animate-pulse" />
               <div className="w-2 h-2 bg-white/20" />
               <div className="w-2 h-2 bg-white/20" />
             </div>
@@ -92,7 +92,7 @@ const Projects = () => {
                   alt={project.title}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-red-600/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                <div className="absolute inset-0 bg-blue-600/10 dark:bg-red-600/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                 <div className="absolute top-4 left-4 bg-black text-white text-[8px] font-black px-2 py-1 italic tracking-widest uppercase">
                   MOD_{idx + 700}
                 </div>
@@ -104,14 +104,14 @@ const Projects = () => {
               {/* Content */}
               <div className="p-6 sm:p-8 flex-1 flex flex-col">
                 <div className="flex items-start justify-between mb-4 sm:mb-6">
-                  <h3 className="text-3xl font-black uppercase italic tracking-tighter leading-none text-zinc-900 dark:text-white group-hover:text-red-500 transition-colors">
+                  <h3 className="text-3xl font-black uppercase italic tracking-tighter leading-none text-zinc-900 dark:text-white group-hover:text-orange-500 dark:text-red-500 transition-colors">
                     {project.title}
                   </h3>
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-900 dark:text-white hover:text-red-500 transition-all transform hover:rotate-12"
+                    className="text-zinc-900 dark:text-white hover:text-orange-500 dark:text-red-500 transition-all transform hover:rotate-12"
                   >
                     <ArrowUpRight size={24} />
                   </a>
@@ -126,7 +126,7 @@ const Projects = () => {
                   {project.technologies.map(tech => (
                     <span
                       key={tech}
-                      className="text-[9px] text-zinc-500 border border-zinc-800 px-2 py-1 font-black uppercase tracking-widest bg-black/30 group-hover:border-red-900/50 group-hover:text-red-500 transition-colors"
+                      className="text-[9px] text-zinc-500 border border-zinc-800 px-2 py-1 font-black uppercase tracking-widest bg-black/30 group-hover:border-blue-900/50 dark:border-red-900/50 group-hover:text-orange-500 dark:text-red-500 transition-colors"
                     >
                       {tech}
                     </span>
@@ -149,7 +149,7 @@ const Projects = () => {
         >
           <div className="flex items-center gap-4 mb-8">
             <div className="h-[1px] w-20 bg-zinc-800" />
-            <ShieldAlert size={16} className="text-red-600 animate-pulse" />
+            <ShieldAlert size={16} className="text-blue-600 dark:text-red-600 animate-pulse" />
             <div className="h-[1px] w-20 bg-zinc-800" />
           </div>
 

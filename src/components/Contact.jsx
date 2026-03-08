@@ -50,7 +50,7 @@ const Contact = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-red-600 text-[10px] font-black uppercase tracking-[0.5em] mb-2"
+              className="text-blue-600 dark:text-red-600 text-[10px] font-black uppercase tracking-[0.5em] mb-2"
             >
               Comms_Terminal_Initialized
             </motion.p>
@@ -78,7 +78,7 @@ const Contact = () => {
               viewport={{ once: true }}
               className="bg-zinc-100 dark:bg-zinc-900 border-4 border-black p-6 sm:p-8 relative shadow-[8px_8px_0px_0px_rgba(255,0,0,1)] sm:shadow-[12px_12px_0px_0px_rgba(255,0,0,1)] transition-colors"
             >
-              <div className="absolute -top-4 -left-4 w-12 h-12 border-t-8 border-l-8 border-red-600" />
+              <div className="absolute -top-4 -left-4 w-12 h-12 border-t-8 border-l-8 border-blue-600 dark:border-red-600" />
 
               <h3 className="text-2xl font-black uppercase italic mb-4 tracking-tighter">GET_IN_TOUCH</h3>
               <p className="text-zinc-400 font-bold italic leading-relaxed text-base mb-8">
@@ -91,7 +91,7 @@ const Contact = () => {
                   <input
                     type="text"
                     placeholder="SENDER_ID"
-                    className="w-full bg-white dark:bg-black border-2 border-zinc-200 dark:border-zinc-800 p-4 text-xs font-black uppercase tracking-widest text-zinc-900 dark:text-white outline-none focus:border-red-600 transition-colors"
+                    className="w-full bg-white dark:bg-black border-2 border-zinc-200 dark:border-zinc-800 p-4 text-xs font-black uppercase tracking-widest text-zinc-900 dark:text-white outline-none focus:border-blue-600 dark:border-red-600 transition-colors"
                   />
                   <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-20 group-focus-within:opacity-100 transition-opacity">
                     <Terminal size={14} />
@@ -102,7 +102,7 @@ const Contact = () => {
                   <textarea
                     rows="4"
                     placeholder="TRANSMISSION_CONTENT"
-                    className="w-full bg-white dark:bg-black border-2 border-zinc-200 dark:border-zinc-800 p-4 text-xs font-black uppercase tracking-widest text-zinc-900 dark:text-white outline-none focus:border-red-600 transition-colors resize-none"
+                    className="w-full bg-white dark:bg-black border-2 border-zinc-200 dark:border-zinc-800 p-4 text-xs font-black uppercase tracking-widest text-zinc-900 dark:text-white outline-none focus:border-blue-600 dark:border-red-600 transition-colors resize-none"
                   />
                   <div className="absolute right-4 top-4 opacity-20 group-focus-within:opacity-100 transition-opacity">
                     <MessageSquare size={14} />
@@ -112,7 +112,7 @@ const Contact = () => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="bg-red-600 text-white font-black uppercase p-5 tracking-[0.3em] flex items-center justify-center gap-4 hover:bg-red-500 transition-all shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1"
+                  className="bg-blue-600 dark:bg-red-600 text-white font-black uppercase p-5 tracking-[0.3em] flex items-center justify-center gap-4 hover:bg-orange-500 dark:bg-red-500 transition-all shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1"
                 >
                   <Send size={18} />
                   INITIALIZE_UPLOAD
@@ -120,8 +120,8 @@ const Contact = () => {
               </div>
             </motion.div>
 
-            <div className="bg-red-600/5 border-2 border-dashed border-red-600/20 p-6 flex items-center gap-4">
-              <ShieldAlert className="text-red-600 shrink-0" size={24} />
+            <div className="bg-blue-600/5 dark:bg-red-600/5 border-2 border-dashed border-blue-600/20 dark:border-red-600/20 p-6 flex items-center gap-4">
+              <ShieldAlert className="text-blue-600 dark:text-red-600 shrink-0" size={24} />
               <p className="text-[10px] font-black uppercase text-zinc-500 tracking-widest leading-relaxed">
                 All signals are processed through secure gateways. No unauthorized interception detected.
               </p>
@@ -150,11 +150,11 @@ const Contact = () => {
                   className="bg-zinc-100 dark:bg-zinc-900 border-2 border-black p-5 flex items-center justify-between group cursor-pointer transition-all"
                 >
                   <div className="flex items-center gap-6">
-                    <span className="text-red-600 group-hover:scale-125 group-hover:rotate-12 transition-all duration-300">
+                    <span className="text-blue-600 dark:text-red-600 group-hover:scale-125 group-hover:rotate-12 transition-all duration-300">
                       {link.icon}
                     </span>
                     <div>
-                      <p className="text-sm font-black uppercase tracking-tighter text-zinc-900 dark:text-white group-hover:text-red-500 transition-colors">
+                      <p className="text-sm font-black uppercase tracking-tighter text-zinc-900 dark:text-white group-hover:text-orange-500 dark:text-red-500 transition-colors">
                         {link.text}
                       </p>
                       <p className="text-[7px] font-bold uppercase text-zinc-600">
@@ -166,7 +166,7 @@ const Contact = () => {
                   <div className="flex flex-col items-end gap-1">
                     <div className="flex gap-0.5">
                       {[...Array(3)].map((_, i) => (
-                        <div key={i} className={`w-1 h-1 ${i === 2 ? 'bg-red-600 animate-pulse' : 'bg-red-600/20'}`} />
+                        <div key={i} className={`w-1 h-1 ${i === 2 ? 'bg-blue-600 dark:bg-red-600 animate-pulse' : 'bg-blue-600/20 dark:bg-red-600/20'}`} />
                       ))}
                     </div>
                     <p className="text-[8px] font-black text-emerald-500 tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">
