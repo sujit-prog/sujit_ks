@@ -5,9 +5,9 @@ import { useTheme } from '../context/ThemeContext';
 
 const navLinks = [
   { id: 'hero', label: 'IGNITION', gear: 'P' },
-  { id: 'about', label: 'PILOT', gear: '1' },
-  { id: 'projects', label: 'GARAGE', gear: '2' },
-  { id: 'experience', label: 'TRACK_HIS', gear: '3' },
+  { id: 'about', label: 'ME', gear: '1' },
+  { id: 'projects', label: 'PROJECTS', gear: '2' },
+  { id: 'experience', label: 'WORK_HIS', gear: '3' },
   { id: 'contact', label: 'COMMS', gear: '4' },
 
 ];

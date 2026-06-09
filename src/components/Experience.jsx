@@ -18,7 +18,7 @@ const EXPERIENCE_LOGS = [
     company: "INFOSYS SPRINGBOARD",
     role: "JAVA DEVELOPMENT INTERN",
     period: "2026",
-    location: "REMOTE_SECTOR",
+    location: "REMOTE",
     description: "Orchestrated high-performance web architectures and managed neural-interface dashboard systems.",
     achievements: ["Created Medivault", "Collaborated with team", "Best project group"],
     gear: "5"

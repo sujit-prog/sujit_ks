@@ -151,23 +151,33 @@ const HeroSection = () => {
   useEffect(() => {
     if (gameState !== 'playing') return;
     const gameInterval = setInterval(() => {
-      const gameSpeed = 10 + Math.floor(score / 40);
+      const gameSpeed = 8 + Math.floor(score / 50);
       setScore(s => s + 1);
       setRoadOffset(prev => (prev + gameSpeed) % 80);
       setEnemies(prev => {
-        const next = prev.map(e => ({ ...e, y: e.y + (gameSpeed - 3) })).filter(e => e.y < 500);
-        if (next.length < 4 && Math.random() > 0.94) {
-          const types = ["sedan", "sports", "truck"];
-          const colors = ["#3b82f6", "#10b981", "#f59e0b", "#8b5cf6", "#f43f5e", "#64748b"];
-          next.push({
-            id: Math.random(),
-            lane: Math.floor(Math.random() * 3),
-            y: -150,
-            type: types[Math.floor(Math.random() * types.length)],
-            color: colors[Math.floor(Math.random() * colors.length)]
-          });
+        const next = prev.map(e => ({ ...e, y: e.y + (gameSpeed - 2) })).filter(e => e.y < 400);
+        
+        if (next.length < 3 && Math.random() > 0.92) {
+          const recentlySpawned = next.filter(e => e.y < 0);
+          if (recentlySpawned.length < 2) {
+            const occupiedLanes = recentlySpawned.map(e => e.lane);
+            const availableLanes = [0, 1, 2].filter(l => !occupiedLanes.includes(l));
+            if (availableLanes.length > 0) {
+              const types = ["sedan", "sports", "truck"];
+              const colors = ["#3b82f6", "#10b981", "#f59e0b", "#8b5cf6", "#f43f5e", "#64748b"];
+              const lane = availableLanes[Math.floor(Math.random() * availableLanes.length)];
+              next.push({
+                id: Math.random(),
+                lane: lane,
+                y: -150,
+                type: types[Math.floor(Math.random() * types.length)],
+                color: colors[Math.floor(Math.random() * colors.length)]
+              });
+            }
+          }
         }
-        const collision = next.find(e => e.y > 330 && e.y < 440 && e.lane === playerLane);
+
+        const collision = next.find(e => e.y > 100 && e.y < 230 && e.lane === playerLane);
         if (collision) {
           setGameState('crashed');
           audio?.playCrash();
@@ -463,8 +473,8 @@ const HeroSection = () => {
                 </motion.div>
 
                 {/* Dashboard Grid - Fully Responsive */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 w-full max-w-5xl relative z-50 px-2 sm:px-4 mt-4 sm:mt-12 pb-12">
-                  <DashCard href="#projects" title="GARAGE" subtitle="My Projects" color="bg-yellow-400" icon={<Maximize2 size={20} />} />
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 w-full max-w-7xl relative z-50 px-2 sm:px-4 mt-4 sm:mt-12 pb-12">
+                  <DashCard href="#projects" title="PROJECTS" subtitle="My Garage" color="bg-yellow-400" icon={<Maximize2 size={20} />} />
                   <DashCard href="#about" title="ME" subtitle="Profile" color="bg-emerald-500" icon={<User size={20} />} />
                   <DashCard href="#experience" title="WORK" subtitle="History" color="bg-purple-600" icon={<Briefcase size={20} />} />
                   <DashCard href="#contact" title="COMMS" subtitle="Connect" color="bg-blue-600 dark:bg-red-600" icon={<Mail size={20} />} />
@@ -625,7 +635,7 @@ const RaceLicense = ({ initialPos, isDark, audio }) => {
                   whileHover={{ scale: 1.05 }}
                   className="flex items-center justify-between bg-blue-600 dark:bg-red-600 text-white px-2 sm:px-3 py-1 sm:py-2 text-[7px] sm:text-[9px] font-black uppercase italic tracking-tighter border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
                 >
-                  <span>Access_Dossier</span>
+                  <span>Access_RESUME</span>
                   <ArrowUpRight size={8} className="sm:w-2.5 sm:h-2.5" />
                 </motion.a>
               </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   Mail, Github, Linkedin, Instagram, Send,
@@ -37,6 +37,15 @@ const CONTACT_CHANNELS = [
 ];
 
 const Contact = () => {
+  const [senderId, setSenderId] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSend = () => {
+    if (!message.trim()) return;
+    const mailtoLink = `mailto:10sujitkumarsha@gmail.com?subject=Message from ${encodeURIComponent(senderId || 'Website Visitor')}&body=${encodeURIComponent(message)}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
     <section id="contact" className="min-h-screen bg-slate-50 dark:bg-[#050505] text-zinc-900 dark:text-white font-black py-20 px-6 relative overflow-hidden transition-colors duration-700">
       {/* HUD Scanline Overlay */}
@@ -90,6 +99,8 @@ const Contact = () => {
                 <div className="relative group">
                   <input
                     type="text"
+                    value={senderId}
+                    onChange={(e) => setSenderId(e.target.value)}
                     placeholder="SENDER_ID"
                     className="w-full bg-white dark:bg-black border-2 border-zinc-200 dark:border-zinc-800 p-4 text-xs font-black uppercase tracking-widest text-zinc-900 dark:text-white outline-none focus:border-blue-600 dark:border-red-600 transition-colors"
                   />
@@ -101,6 +112,8 @@ const Contact = () => {
                 <div className="relative group">
                   <textarea
                     rows="4"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     placeholder="TRANSMISSION_CONTENT"
                     className="w-full bg-white dark:bg-black border-2 border-zinc-200 dark:border-zinc-800 p-4 text-xs font-black uppercase tracking-widest text-zinc-900 dark:text-white outline-none focus:border-blue-600 dark:border-red-600 transition-colors resize-none"
                   />
@@ -110,6 +123,7 @@ const Contact = () => {
                 </div>
 
                 <motion.button
+                  onClick={handleSend}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="bg-blue-600 dark:bg-red-600 text-white font-black uppercase p-5 tracking-[0.3em] flex items-center justify-center gap-4 hover:bg-orange-500 dark:bg-red-500 transition-all shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1"
